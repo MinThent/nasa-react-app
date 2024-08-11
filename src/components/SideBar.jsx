@@ -1,20 +1,20 @@
 import React from 'react'
 
 export default function Sidebar(props) {
-    const { children } = props
+    const { children, handleToggleModal, data } = props
     return (
 
         <div className='sidebar'>
-            <div className='bgOverlay'></div>
+            <div className='bgOverlay' onClick={handleToggleModal}></div>
             <div className='sidebarContents'>
                 <h2>
-                    The Brutal HALO Guy
+                    {data?.title}
                 </h2>
-                <div>
-                    <p>Description</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi rem, quibusdam, sapiente perferendis pariatur porro tempora laboriosam sunt molestias ea et eius maxime odit voluptatum, praesentium rerum exercitationem repudiandae ullam.</p>
+                <div className='descriptionContainer'>
+                    <p className='descriptionTitle'>{data?.date}</p>
+                    <p>{data?.explanation}</p>
                 </div>
-                <button>
+                <button onClick={handleToggleModal}>
                     <i className="fa-solid fa-right-long"></i>
                 </button>
             </div>
